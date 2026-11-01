@@ -2,6 +2,9 @@
 
 Профессиональный, конверсионный мини-сайт и интерактивный каталог для ресторанов, кафе, пиццерий и суши-баров с прямым оформлением заказов в **Telegram** и **WhatsApp** без комиссий агрегаторов (экономия 30–35% с каждого чека).
 
+- **🌐 Live Demo (GitHub Pages):** [https://pfylon.github.io/lokal-kitchen/](https://pfylon.github.io/lokal-kitchen/)
+- **📦 Репозиторий:** [https://github.com/pfylon/lokal-kitchen](https://github.com/pfylon/lokal-kitchen)
+
 ---
 
 ## 🌟 Что реализовано в коде (Архитектура и фичи)
