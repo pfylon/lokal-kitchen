@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Lokal Kitchen — Доставка любимой еды без комиссий агрегаторов</title>
+  <meta name="description" content="Прямая доставка свежей пиццы, роллов, горячих блюд, десертов и кофе. Без наценок агрегаторов, быстрее на 20 минут и с подарками к заказу!">
+  <meta name="theme-color" content="#0D0A08">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23E06D3B'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8 0-.55.45-1 1-1h14c.55 0 1 .45 1 1 0 4.41-3.59 8-8 8zm-6.8-11c.7-2.9 3.03-5.17 6.02-5.78.69-.14 1.34.33 1.39 1.03.05.67-.44 1.25-1.11 1.38-2.12.44-3.79 2.05-4.36 4.1-.18.66-.82 1.05-1.48.91-.66-.14-1.07-.78-.89-1.44z'/%3E%3C/svg%3E">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Lokal Kitchen — Доставка еды напрямую без наценок">
+  <meta property="og:description" content="Свежая пицца, роллы, боулы и кофе с быстрой доставкой по району. Заказывайте в Telegram или WhatsApp!">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Верхняя строка преимуществ доставки -->
+  <aside class="top-announcement" aria-label="Информация о доставке">
+    <div class="container top-announcement__inner">
+      <div class="announcement-item">
+        <span class="pulse-dot"></span>
+        <span id="topBarInfo"><strong>Доставка за 35-45 мин</strong> • Бесплатно от 1 200 ₽</span>
+      </div>
+      <div class="announcement-item announcement-item--desktop">
+        <span class="tag-promo" id="topBarPromoBadge">🎁 Подарок</span>
+        <span id="topBarPromoText">Морс или десерт к первому прямому заказу</span>
+      </div>
+      <div class="announcement-links">
+        <span class="delivery-time-badge" id="topBarDiscountBadge">Самовывоз -10%</span>
+        <a href="tel:+79991234567" class="announcement-phone" id="topBarPhone">+7 (999) 123-45-67</a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Шапка сайта -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      
+      <!-- Логотип бренда -->
+      <a href="#" class="brand-logo" aria-label="Lokal Kitchen Главная">
+        <div class="logo-badge">
+          <svg class="logo-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+            <path d="M2 17l10 5 10-5"></path>
+            <path d="M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
+        <div class="brand-titles">
+          <span class="brand-title" id="headerBrandTitle">Lokal Kitchen</span>
+          <span class="brand-sub" id="headerBrandSub">Craft Food & Direct Delivery</span>
+        </div>
+      </a>
+
+      <!-- Меню навигации -->
+      <nav class="nav-menu">
+        <a href="#catalog" class="nav-link">Каталог блюд</a>
+        <a href="#advantages" class="nav-link">Почему напрямую?</a>
+        <a href="#delivery-info" class="nav-link">Доставка и оплата</a>
+        <a href="#contacts" class="nav-link">Контакты</a>
+      </nav>
+
+      <!-- Действия в шапке -->
+      <div class="header-actions">
+        <!-- Кнопка корзины в шапке -->
+        <button class="cart-trigger-btn" id="openCartBtn" aria-label="Открыть корзину">
+          <div class="cart-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="9" cy="21" r="1"></circle>
+              <circle cx="20" cy="21" r="1"></circle>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+            </svg>
+            <span class="cart-badge-count" id="headerCartCount">0</span>
+          </div>
+          <span class="cart-total-header" id="headerCartTotal">0 ₽</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO БЛОК: СИЛЬНЫЙ ОФФЕР И ПРЯМЫЕ ЗАКАЗЫ -->
+    <section class="hero-section" id="hero">
+      <div class="hero-backdrop"></div>
+      <div class="container hero-container">
+        
+        <div class="hero-text-col">
+          <div class="hero-label">
+            <span class="label-icon">🚀</span>
+            <span>Прямая доставка без посредников</span>
+          </div>
+
+          <h1 class="hero-heading">
+            Свежая еда и напитки с&nbsp;доставкой без&nbsp;комиссий агрегаторов
+          </h1>
+
+          <p class="hero-subheading">
+            Готовим из-под ножа: неаполитанская пицца, сочные роллы, сытные боулы и свежая выпечка. Напрямую от кухни к вашей двери — <strong>на 20% выгоднее, горячее и быстрее</strong>.
+          </p>
+
+          <!-- Выгоды прямо в оффере -->
+          <div class="hero-bullets">
+            <div class="hero-bullet">
+              <span class="bullet-check">✓</span>
+              <span>Без наценки сервисов (до 35%)</span>
+            </div>
+            <div class="hero-bullet">
+              <span class="bullet-check">✓</span>
+              <span>Приедет горячим за 35-45 мин</span>
+            </div>
+            <div class="hero-bullet">
+              <span class="bullet-check">✓</span>
+              <span>Подарок к первому заказу</span>
+            </div>
+          </div>
+
+          <!-- Кнопки действия -->
+          <div class="hero-cta-group">
+            <a href="#catalog" class="btn btn--primary">
+              <span>Смотреть меню</span>
+              <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </a>
+
+            <div class="messenger-quick-buttons">
+              <a href="https://t.me/zifca" target="_blank" rel="noopener noreferrer" class="btn btn--tg" id="heroTgBtn" title="Заказать в Telegram">
+                <svg class="messenger-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/>
+                </svg>
+                <span>В Telegram</span>
+              </a>
+
+              <a href="https://wa.me/79991234567?text=Здравствуйте!%20Хочу%20сделать%20заказ%20в%20Lokal%20Kitchen" target="_blank" rel="noopener noreferrer" class="btn btn--wa" id="heroWaBtn" title="Заказать в WhatsApp">
+                <svg class="messenger-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 6.96C8.94 6.96 8.66 7.02 8.42 7.28C8.18 7.54 7.5 8.18 7.5 9.48C7.5 10.78 8.44 12.04 8.57 12.21C8.7 12.38 10.42 15.04 13.06 16.17C15.25 17.11 15.7 16.92 16.17 16.88C16.64 16.84 17.69 16.26 17.91 15.65C18.13 15.03 18.13 14.51 18.06 14.4C18 14.29 17.83 14.23 17.57 14.1C17.31 13.97 16.03 13.34 15.79 13.25C15.55 13.16 15.38 13.12 15.21 13.38C15.04 13.64 14.55 14.23 14.4 14.4C14.25 14.57 14.1 14.6 13.84 14.47C13.58 14.34 12.75 14.07 11.76 13.19C10.99 12.5 10.47 11.65 10.32 11.39C10.17 11.13 10.3 10.99 10.43 10.86C10.55 10.74 10.7 10.55 10.83 10.4C10.96 10.25 11 10.14 11.09 9.97C11.18 9.8 11.13 9.65 11.07 9.52C11.01 9.39 10.51 8.16 10.3 7.65C10.1 7.15 9.9 7.22 9.74 7.21C9.59 7.2 9.42 7.2 9.25 7.2C9.08 7.2 8.94 7.22 8.82 7.35L9.11 6.96Z"/>
+                </svg>
+                <span>В WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Визуальная карточка Hero -->
+        <div class="hero-visual-col">
+          <div class="hero-media-wrapper">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=900&q=80" 
+                 alt="Свежая пицца из печи и авторские блюда" 
+                 class="hero-media-image"
+                 loading="eager">
+            
+            <!-- Плавающие бейджи выгоды -->
+            <div class="hero-floating-card hero-floating-card--savings">
+              <div class="savings-percent">-35%</div>
+              <div class="savings-text">
+                <strong>Честная цена</strong>
+                <span>Без комиссий агрегаторов</span>
+              </div>
+            </div>
+
+            <div class="hero-floating-card hero-floating-card--speed">
+              <span class="speed-icon">⚡</span>
+              <div>
+                <strong>35 минут</strong>
+                <span>Среднее время доставки</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- БЛОК ВЫГОДЫ: ПОЧЕМУ ЗАКАЗЫВАТЬ НАПРЯМУЮ КРУЧЕ И ВЫГОДНЕЕ -->
+    <section class="section section--advantages" id="advantages">
+      <div class="container">
+        
+        <div class="section-heading text-center">
+          <span class="section-tag">Выгода прямого заказа</span>
+          <h2 class="section-title">Почему заказ напрямую лучше любого агрегатора?</h2>
+          <p class="section-subtitle">
+            Агрегаторы забирают у локальных заведений до 35% с каждого чека. Мы отдаём эту разницу вам в виде более низких цен, щедрых порций и приятных подарков!
+          </p>
+        </div>
+
+        <div class="advantages-grid">
+          
+          <div class="advantage-card advantage-card--highlight">
+            <div class="advantage-icon">💰</div>
+            <h3 class="advantage-title">Без наценок сервисов</h3>
+            <p class="advantage-desc">
+              В приложениях агрегаторов блюда стоят дороже на 15–25%, чтобы компенсировать скрытую комиссию. На нашем сайте вы покупаете по реальной честной цене заведения.
+            </p>
+            <div class="advantage-badge">Экономия до 500 ₽ с заказа</div>
+          </div>
+
+          <div class="advantage-card">
+            <div class="advantage-icon">⚡</div>
+            <h3 class="advantage-title">Быстрее на 15–20 минут</h3>
+            <p class="advantage-desc">
+              Заказ мгновенно поступает на планшет шеф-повару. Мы не ждём распределения сторонних курьеров — доставляем собственной бережной службой.
+            </p>
+            <div class="advantage-sub">Горячее прямо из печи</div>
+          </div>
+
+          <div class="advantage-card">
+            <div class="advantage-icon">🎁</div>
+            <h3 class="advantage-title">Подарки и бонусы</h3>
+            <p class="advantage-desc">
+              К каждому прямому заказу от 1 200 ₽ дарим фирменный ягодный морс или свежий круассан. Мы искренне ценим постоянных гостей!
+            </p>
+            <div class="advantage-sub">Комплимент от шефа</div>
+          </div>
+
+          <div class="advantage-card">
+            <div class="advantage-icon">❤️</div>
+            <h3 class="advantage-title">Прямой контакт с кухней</h3>
+            <p class="advantage-desc">
+              Никаких роботизированных ботов поддержки. Если у вас есть пожелания (убрать лук, сделать острее, упаковать раздельно) — повар учтёт их сразу.
+            </p>
+            <div class="advantage-sub">Индивидуальный подход</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- КАТАЛОГ ТОВАРОВ С ИНТЕРАКТИВНОЙ КОРЗИНОЙ -->
+    <section class="section section--catalog" id="catalog">
+      <div class="container">
+        
+        <div class="section-heading text-center">
+          <span class="section-tag">Наше меню</span>
+          <h2 class="section-title">Каталог блюд и напитков</h2>
+          <p class="section-subtitle">
+            Добавляйте любимые позиции в корзину и оформляйте быстрый заказ в один клик через любимый мессенджер
+          </p>
+        </div>
+
+        <!-- Категории меню -->
+        <div class="catalog-tabs" role="tablist" aria-label="Категории товаров">
+          <button class="catalog-tab active" data-filter="all" role="tab" aria-selected="true">Все позиции</button>
+          <button class="catalog-tab" data-filter="pizza" role="tab" aria-selected="false">🍕 Пицца и сэндвичи</button>
+          <button class="catalog-tab" data-filter="rolls" role="tab" aria-selected="false">🍣 Роллы и боулы</button>
+          <button class="catalog-tab" data-filter="coffee" role="tab" aria-selected="false">☕ Кофе и напитки</button>
+          <button class="catalog-tab" data-filter="dessert" role="tab" aria-selected="false">🥐 Выпечка и десерты</button>
+        </div>
+
+        <!-- Сетка карточек блюд (Генерируется динамически из PRODUCTS в script.js) -->
+        <div class="catalog-grid" id="catalogGrid">
+          <!-- Динамический рендеринг через JS -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ИНФОРМАЦИЯ О ДОСТАВКЕ И ЗОНАХ -->
+    <section class="section section--delivery-info" id="delivery-info">
+      <div class="container">
+        <div class="delivery-card">
+          <div class="delivery-card__grid">
+            
+            <div class="delivery-info-text">
+              <span class="section-tag">Условия и зоны</span>
+              <h2 class="section-title">Быстро, бережно и в термосумках</h2>
+              <p class="delivery-desc">
+                Мы доставляем заказы в специальных термобоксах, поэтому пицца приезжает обжигающе горячей, а роллы и напитки сохраняют идеальную температуру.
+              </p>
+
+              <div class="delivery-steps">
+                <div class="delivery-step">
+                  <div class="step-num">1</div>
+                  <div>
+                    <strong>Выбираете блюда на сайте</strong>
+                    <p>Добавьте в корзину и укажите адрес</p>
+                  </div>
+                </div>
+                <div class="delivery-step">
+                  <div class="step-num">2</div>
+                  <div>
+                    <strong>Один клик в Telegram / WhatsApp</strong>
+                    <p>Заказ автоматически формируется текстом</p>
+                  </div>
+                </div>
+                <div class="delivery-step">
+                  <div class="step-num">3</div>
+                  <div>
+                    <strong>Курьер у двери через 35–45 минут</strong>
+                    <p>Оплата при получении картой или наличными</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="delivery-stats-card">
+              <div class="stat-box">
+                <div class="stat-value" id="statDeliveryTime">35-45 мин</div>
+                <div class="stat-label">Время доставки по району</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value" id="statFreeThreshold">от 1 200 ₽</div>
+                <div class="stat-label">Бесплатная доставка</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-value" id="statPickupDiscount">-10%</div>
+                <div class="stat-label">Скидка на самовывоз ко времени</div>
+              </div>
+              <div class="stat-box stat-box--gift">
+                <div class="stat-value" id="statGiftTitle">🎁 Подарок</div>
+                <div class="stat-label" id="statGiftDesc">К каждому заказу через наш сайт</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- КОНТАКТЫ И ТОЧКА САМОВЫВОЗА -->
+    <section class="section section--contacts" id="contacts">
+      <div class="container">
+        <div class="contacts-wrapper">
+          <div class="contacts-info">
+            <span class="section-tag">Самовывоз и контакты</span>
+            <h2 class="section-title">Заберите заказ со скидкой 10%</h2>
+            <p class="contacts-lead">
+              Мы находимся в самом центре района. Оформите самовывоз на сайте, и к вашему приходу горячий заказ будет аккуратно упакован на стойке.
+            </p>
+
+            <div class="contact-rows">
+              <div class="contact-row">
+                <span class="contact-icon">📍</span>
+                <div>
+                  <strong>Адрес кухни и самовывоза:</strong>
+                  <p id="pickupAddressText">г. Москва, ул. Большая Покровская, 14 (вход с аллеи)</p>
+                  <button type="button" class="btn-copy-address" id="copyAddressBtn">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="icon-tiny">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                    </svg>
+                    <span>Скопировать адрес</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <span class="contact-icon">⏰</span>
+                <div>
+                  <strong>График приёма заказов:</strong>
+                  <p id="contactWorkingHours">Ежедневно с 10:00 до 22:30</p>
+                </div>
+              </div>
+
+              <div class="contact-row">
+                <span class="contact-icon">📞</span>
+                <div>
+                  <strong>Телефон администратора кухни:</strong>
+                  <p><a href="tel:+79991234567" class="phone-link" id="contactPhone">+7 (999) 123-45-67</a></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="contacts-cta-box">
+            <div class="cta-inner-content">
+              <h3>Есть особые пожелания к заказу?</h3>
+              <p>Напишите нам напрямую в мессенджер — ответим за 1 минуту!</p>
+              <div class="direct-links-group">
+                <a href="https://t.me/zifca" target="_blank" rel="noopener noreferrer" class="btn btn--tg btn--block" id="contactTgBtn">
+                  Чат в Telegram
+                </a>
+                <a href="https://wa.me/79991234567" target="_blank" rel="noopener noreferrer" class="btn btn--wa btn--block" id="contactWaBtn">
+                  Чат в WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- МОДАЛЬНОЕ ОКНО / ВСПЛЫВАЮЩАЯ КОРЗИНА ЗАКАЗА -->
+  <div class="cart-modal-backdrop" id="cartBackdrop" aria-hidden="true">
+    <div class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-labelledby="cartDrawerTitle">
+      
+      <!-- Шапка корзины -->
+      <div class="cart-drawer__header">
+        <div class="cart-drawer__title-wrap">
+          <h2 id="cartDrawerTitle" class="cart-drawer__title">Ваш заказ</h2>
+          <span class="cart-drawer__badge" id="cartItemsBadge">0 поз.</span>
+        </div>
+        <button class="cart-drawer__close" id="closeCartBtn" aria-label="Закрыть корзину">✕</button>
+      </div>
+
+      <!-- Индикатор прогресса бесплатной доставки -->
+      <div class="delivery-progress-box">
+        <div class="delivery-progress-text" id="freeDeliveryNotice">
+          До бесплатной доставки осталось <strong>1 200 ₽</strong>
+        </div>
+        <div class="progress-bar-track">
+          <div class="progress-bar-fill" id="freeDeliveryBar" style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <!-- Список товаров в корзине -->
+      <div class="cart-drawer__body" id="cartItemsContainer">
+        <!-- Генерируется через JS -->
+      </div>
+
+      <!-- Переключатель Доставка / Самовывоз -->
+      <div class="order-type-switch">
+        <label class="order-type-option active" id="deliveryTypeDelivery">
+          <input type="radio" name="orderType" value="delivery" checked>
+          <span>🚚 Доставка курьером</span>
+        </label>
+        <label class="order-type-option" id="deliveryTypePickup">
+          <input type="radio" name="orderType" value="pickup">
+          <span>🛍️ Самовывоз (-10%)</span>
+        </label>
+      </div>
+
+      <!-- Уведомление об автозаполнении постоянного клиента -->
+      <div class="client-autofill-notice" id="clientAutofillNotice" style="display: none;">
+        <span class="autofill-icon">✨</span>
+        <div class="autofill-text">
+          <strong>С возвращением!</strong> Данные подставлены автоматически
+        </div>
+        <button type="button" class="btn-clear-profile" id="clearProfileBtn" title="Очистить сохраненные данные">Очистить</button>
+      </div>
+
+      <!-- Поля данных клиента -->
+      <form class="cart-form" id="checkoutForm" onsubmit="event.preventDefault();">
+        <div class="form-row">
+          <input type="text" id="clientName" class="form-input" placeholder="Ваше имя *" required autocomplete="name">
+          <input type="tel" id="clientPhone" class="form-input" placeholder="Номер телефона *" required autocomplete="tel">
+        </div>
+        <div class="form-row" id="addressRow">
+          <input type="text" id="clientAddress" class="form-input" placeholder="Адрес доставки (улица, дом, кв) *" required autocomplete="street-address">
+        </div>
+        <div class="form-row">
+          <input type="text" id="clientComment" class="form-input" placeholder="Комментарий к заказу (код домофона, этаж)">
+        </div>
+
+        <!-- Выбор способа оплаты -->
+        <div class="form-payment-section">
+          <span class="form-section-label">Способ оплаты:</span>
+          <div class="payment-options">
+            <label class="payment-option active" id="payMethodCard">
+              <input type="radio" name="paymentMethod" value="card" checked>
+              <span>💳 Картой</span>
+            </label>
+            <label class="payment-option" id="payMethodSbp">
+              <input type="radio" name="paymentMethod" value="sbp">
+              <span>📲 СБП / QR</span>
+            </label>
+            <label class="payment-option" id="payMethodCash">
+              <input type="radio" name="paymentMethod" value="cash">
+              <span>💵 Наличными</span>
+            </label>
+          </div>
+          <div class="cash-change-row" id="cashChangeRow" style="display: none;">
+            <input type="text" id="cashChangeAmount" class="form-input" placeholder="Сдача с какой суммы? (например, 2 000 ₽)">
+          </div>
+        </div>
+      </form>
+
+      <!-- Итоги и кнопки оформления -->
+      <div class="cart-drawer__footer">
+        
+        <div class="cart-summary">
+          <div class="summary-line">
+            <span>Сумма блюд:</span>
+            <span id="summarySubtotal">0 ₽</span>
+          </div>
+          <div class="summary-line discount-line" id="discountLine" style="display: none;">
+            <span>Скидка за самовывоз (10%):</span>
+            <span id="summaryDiscount">-0 ₽</span>
+          </div>
+          <div class="summary-line">
+            <span>Доставка:</span>
+            <span id="summaryDeliveryCost">Бесплатно</span>
+          </div>
+          <div class="summary-total">
+            <span>К оплате:</span>
+            <span class="total-price-value" id="summaryTotal">0 ₽</span>
+          </div>
+        </div>
+
+        <!-- Кнопки отправки заказа в мессенджеры -->
+        <div class="checkout-actions">
+          <button type="button" class="btn btn--tg btn--checkout" id="sendToTelegramBtn">
+            <svg class="messenger-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .37z"/>
+            </svg>
+            <span>Заказать в Telegram</span>
+          </button>
+
+          <button type="button" class="btn btn--wa btn--checkout" id="sendToWhatsappBtn">
+            <svg class="messenger-icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2M12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67M9.11 6.96C8.94 6.96 8.66 7.02 8.42 7.28C8.18 7.54 7.5 8.18 7.5 9.48C7.5 10.78 8.44 12.04 8.57 12.21C8.7 12.38 10.42 15.04 13.06 16.17C15.25 17.11 15.7 16.92 16.17 16.88C16.64 16.84 17.69 16.26 17.91 15.65C18.13 15.03 18.13 14.51 18.06 14.4C18 14.29 17.83 14.23 17.57 14.1C17.31 13.97 16.03 13.34 15.79 13.25C15.55 13.16 15.38 13.12 15.21 13.38C15.04 13.64 14.55 14.23 14.4 14.4C14.25 14.57 14.1 14.6 13.84 14.47C13.58 14.34 12.75 14.07 11.76 13.19C10.99 12.5 10.47 11.65 10.32 11.39C10.17 11.13 10.3 10.99 10.43 10.86C10.55 10.74 10.7 10.55 10.83 10.4C10.96 10.25 11 10.14 11.09 9.97C11.18 9.8 11.13 9.65 11.07 9.52C11.01 9.39 10.51 8.16 10.3 7.65C10.1 7.15 9.9 7.22 9.74 7.21C9.59 7.2 9.42 7.2 9.25 7.2C9.08 7.2 8.94 7.22 8.82 7.35L9.11 6.96Z"/>
+            </svg>
+            <span>Заказать в WhatsApp</span>
+          </button>
+        </div>
+
+        <p class="checkout-hint">
+          🔒 Нажатие откроет мессенджер с уже заполненным текстом заказа для подтверждения.
+        </p>
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- МОДАЛЬНОЕ ОКНО КАСТОМИЗАЦИИ БЛЮДА (РАЗМЕРЫ И МОДИФИКАТОРЫ) -->
+  <div class="product-modal-backdrop" id="productModalBackdrop" aria-hidden="true">
+    <div class="product-modal" id="productModal" role="dialog" aria-modal="true" aria-labelledby="modalProductTitle">
+      <button class="product-modal__close" id="closeProductModalBtn" aria-label="Закрыть окно">✕</button>
+      
+      <div class="product-modal__media">
+        <img src="" alt="" id="modalProductImg" class="product-modal__img">
+        <span class="product-tag" id="modalProductBadge" style="display: none;"></span>
+      </div>
+
+      <div class="product-modal__body">
+        <div class="product-modal__header">
+          <h3 class="product-modal__title" id="modalProductTitle">Название блюда</h3>
+          <div class="product-modal__tags" id="modalProductTags"></div>
+        </div>
+        <p class="product-modal__desc" id="modalProductDesc">Описание состава блюда</p>
+
+        <!-- Выбор размера / порции -->
+        <div class="modal-options-group" id="modalSizesGroup" style="display: none;">
+          <div class="options-group-title">Размер / Порция:</div>
+          <div class="options-pills" id="modalSizesList"></div>
+        </div>
+
+        <!-- Выбор модификаторов / допов -->
+        <div class="modal-options-group" id="modalModifiersGroup" style="display: none;">
+          <div class="options-group-title">Дополнительные опции:</div>
+          <div class="modifiers-list" id="modalModifiersList"></div>
+        </div>
+      </div>
+
+      <!-- Футер модалки: живая сумма и кнопка добавления -->
+      <div class="product-modal__footer">
+        <div class="modal-calc">
+          <span class="modal-calc-label">Итоговая стоимость:</span>
+          <span class="modal-calc-price" id="modalTotalPrice">0 ₽</span>
+        </div>
+        <button type="button" class="btn btn--primary btn--modal-add" id="modalAddToCartBtn">
+          <span>Добавить в заказ</span>
+          <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- МОБИЛЬНАЯ НИЖНЯЯ ПАНЕЛЬ С КОРЗИНОЙ (STICKY BAR) -->
+  <aside class="mobile-action-bar" aria-label="Быстрые действия">
+    <a href="#catalog" class="mobile-nav-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+      <span>Каталог</span>
+    </a>
+
+    <a href="tel:+79991234567" class="mobile-nav-btn" id="mobileNavPhone">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+      </svg>
+      <span>Звонок</span>
+    </a>
+
+    <!-- Кнопка корзины на мобильных -->
+    <button class="mobile-cart-btn" id="mobileCartTrigger">
+      <div class="cart-btn-content">
+        <span class="mobile-cart-badge" id="mobileCartBadge">0</span>
+        <span class="mobile-cart-text">Корзина</span>
+      </div>
+      <span class="mobile-cart-sum" id="mobileCartSum">0 ₽</span>
+    </button>
+  </aside>
+
+  <!-- ПОДВАЛ (FOOTER) С ОБЯЗАТЕЛЬНОЙ АВТОРСКОЙ СТРОКОЙ -->
+  <footer class="footer">
+    <div class="container footer__container">
+      
+      <div class="footer__about">
+        <div class="brand-logo brand-logo--light">
+          <div class="logo-badge logo-badge--light">
+            <svg class="logo-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+              <path d="M2 17l10 5 10-5"></path>
+              <path d="M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <div class="brand-titles">
+            <span class="brand-title brand-title--light" id="footerBrandTitle">Lokal Kitchen</span>
+            <span class="brand-sub brand-sub--light" id="footerBrandSub">Прямая доставка еды</span>
+          </div>
+        </div>
+        <p class="footer__text">
+          Честные цены без наценок агрегаторов, бережная термодоставка по району и свежие блюда из-под ножа.
+        </p>
+      </div>
+
+      <div class="footer__nav-col">
+        <h4 class="footer__title">Навигация</h4>
+        <ul class="footer__list">
+          <li><a href="#hero">Главная</a></li>
+          <li><a href="#catalog">Каталог и цены</a></li>
+          <li><a href="#advantages">Преимущества прямых заказов</a></li>
+          <li><a href="#delivery-info">Зоны и условия доставки</a></li>
+          <li><a href="#contacts">Самовывоз и контакты</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__direct-col">
+        <h4 class="footer__title">Заказ без наценок</h4>
+        <p class="footer__order-tip">Сделайте заказ в удобном мессенджере:</p>
+        <div class="footer-socials">
+          <a href="https://t.me/zifca" target="_blank" rel="noopener noreferrer" class="social-tag tg-tag" id="footerTgBtn">
+            Telegram чат
+          </a>
+          <a href="https://wa.me/79991234567" target="_blank" rel="noopener noreferrer" class="social-tag wa-tag" id="footerWaBtn">
+            WhatsApp чат
+          </a>
+        </div>
+        <p class="footer__phone-link">
+          Телефон: <a href="tel:+79991234567" id="footerPhone">+7 (999) 123-45-67</a>
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Разделитель и центрированная строка разработчика -->
+    <div class="footer__bottom-strip">
+      <div class="container footer__bottom-container">
+        <div class="copyright">
+          © 2026 Lokal Kitchen. Платформа для прямых заказов локальных заведений.
+        </div>
+        
+        <!-- Обязательная строка авторства -->
+        <div class="author-credit">
+          Разработка и дизайн под ключ: <a href="https://t.me/zifca" target="_blank" rel="noopener noreferrer" class="credit-anchor">@zifca</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ВСплывающее Toast-уведомление -->
+  <div class="toast-alert" id="toastAlert" role="alert" aria-live="polite">
+    <div class="toast-alert__icon" id="toastIcon">✓</div>
+    <div class="toast-alert__body" id="toastText">Товар добавлен в корзину</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
